@@ -17,12 +17,13 @@
     CGFloat offset = 10;
     
     if (self) {
-        _urlLabel = [[UILabel alloc] initWithFrame:CGRectMake(cellHeight + offset, self.bounds.size.height/2 - 30/2, self.bounds.size.width - cellHeight - 2*offset, 30)];
+        _urlLabel = [[UILabel alloc] initWithFrame:CGRectMake(cellHeight, self.bounds.size.height/2 - 30/2, self.bounds.size.width - cellHeight - 2*offset, 30)];
         _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(offset, offset, cellHeight - 2*offset, cellHeight - 2*offset)];
+        [self.imageView.layer setCornerRadius:cellHeight/10];
+        self.imageView.layer.masksToBounds = YES;
         
-        CALayer *layer = self.layer;
-        [layer setBorderWidth:0.4];
-        layer.borderColor=[[UIColor lightGrayColor] CGColor];
+        [self.layer setBorderWidth:0.4];
+        self.layer.borderColor=[[UIColor lightGrayColor] CGColor];
         
         [self addSubview: self.urlLabel];
         [self addSubview: self.imageView];
